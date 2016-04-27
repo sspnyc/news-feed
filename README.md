@@ -4,8 +4,8 @@
 
 ######The client wants to update the feed app (twitter feeds). They would like to add YouTube Instagram and Vine feeds. I have agreed to recreate the app. The present app is difficult to update due to the client using three separate non-programmer frameworks to create the app.
 
-The following is what I was able to complete so far. 
-I need to:
+The following is what I was able to complete so far. <br>
+I still need to: <br>
 * create and map out a json file for categories and topics
 * plug feeds from instagram and vine api's
 * create a proper wireframe
@@ -43,11 +43,7 @@ New Viewer chosen click submenu
 ![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
 
 ``` markdown
-Will use twitter api 
-to generate custom feeds
-```
-``` markdown
-New Viewer Chosen from sub menu
+New Viewer Chosen from sub menu feeds from twitter api
 ```
 ![newfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingfeedNew1ctweet.png)
 
