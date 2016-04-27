@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script>
+
+      var channelName = 'amc'; //https://www.youtube.com/user/amc
+
+        $(document).on("pageinit", "#home", function(){
+        $.get("https://www.googleapis.com/youtube/v3/channels",{
+            part: 'contentDetails',
+            forUsername: channelName,
+            key: 'AIzaSyA0HIp2L6CDvCLmWD4L8Xb7wH6gcYKWFOo'},
+            function(data){
+                $.each(data.items, function(i, item){
+                  console.log(item);
+                  pid = item.contentDetails.relatedPlaylists.uploads;
+                  getVids(pid);
+                })
+            }
+      );
+      function getVids(pid){
+        $.get("https://www.googleapis.com/youtube/v3/playlistItems",{
+          part: 'snippet',
+          maxResults: 10,
+          playlistId: pid,
+          key: 'AIzaSyA0HIp2L6CDvCLmWD4L8Xb7wH6gcYKWFOo'},
+          function(data){
+            var output;
+            $.each(data.items, function(i, item){
+              console.log(item);
+              videTitle = item.snippet.title;
+              videoId = item.snippet.resourceId.videoId
+              output = '<li><iframe src=\"//www.youtube.com/embed/'+ videoId +'\" seamless></iframe></li>';
+
+            //Append to results listStyleType
+
+
+             $('#results').append(output).listview("refresh"); 
+            })
+          });
+        }
+      });
+    // GET https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=amc&key=AIzaSyA0HIp2L6CDvCLmWD4L8Xb7wH6gcYKWFOo
+
+    // GET https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUmWyesNAlftV3kJlFhD6q6w&key=AIzaSyA0HIp2L6CDvCLmWD4L8Xb7wH6gcYKWFOo
+
+  </script>
+
+</head>
+<body>
+
+  <div data-role="page" id="home">
+
+  <div data-role="header" data-position="fixed">
+    <h1>AMC youtube List</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <div class="content-primary">
+      <ul data-role="listview" class="ui-content" id="results"></ul>
+    </div>
+  </div>
+
+
+  <div data-role="footer" data-position="fixed">
+    <h4>bingefeed</h4>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+
+</body>
+</html>
+
+<!-- {
+ "kind": "youtube#channelListResponse",
+ "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/5cGPw0PW4RuJd-IVA0A5f3SCA-U\"",
+ "pageInfo": {
+  "totalResults": 1,
+  "resultsPerPage": 5
+ },
+ "items": [
+  {
+
+   "kind": "youtube#channel",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/_RcAqxq_ryy9XSjYVTG6hFcnJWQ\"",
+   "id": "UCmWyesNAlftV3kJlFhD6q6w",
+   "contentDetails": {
+    "relatedPlaylists": {
+     "likes": "LLmWyesNAlftV3kJlFhD6q6w",
+     "uploads": "UUmWyesNAlftV3kJlFhD6q6w"
+    },
+    "googlePlusUserId": "100449114109872042184"
+   }
+  }
+ ]
+}-->
+
+<!-- {
+ "kind": "youtube#playlistItemListResponse",
+ "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/Owps3kFJdhlG25AxK4FZBcxnDZk\"",
+ "nextPageToken": "CAUQAA",
+ "pageInfo": {
+  "totalResults": 1893,
+  "resultsPerPage": 5
+ },
+ "items": [
+  {
+
+   "kind": "youtube#playlistItem",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/kJd0RonuAUYOP12cWzcF7bIKaZ8\"",
+   "id": "VVVtV3llc05BbGZ0VjNrSmxGaEQ2cTZ3LmUxcVFHc01Mb184",
+   "snippet": {
+    "publishedAt": "2016-04-26T03:00:00.000Z",
+    "channelId": "UCmWyesNAlftV3kJlFhD6q6w",
+    "title": "Sneak Peek: Episode 302: TURN: Washington's Spies: Cold Murdering Bastards",
+    "description": "Don't miss the next episode of TURN: Washington's Spies, Monday, May 2 at 10/9c. Only on AMC. For more TURN: Washington's Spies videos: http://goo.gl/3cTVYC.\n\nSubscribe to the AMC YouTube Channel : http://goo.gl/qSMzej\nAMC : http://www.amctv.com/\nAMC on Facebook : https://www.facebook.com/amc\nAMC on Twitter : http://twitter.com/AMC_TV\nSign Up for the AMC Newsletter : http://www.amc.com/newsletter-subscription\nTURN: Washington's Spies: http://goo.gl/3cTVYC",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/e1qQGsMLo_8/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/e1qQGsMLo_8/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/e1qQGsMLo_8/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/e1qQGsMLo_8/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/e1qQGsMLo_8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "amc",
+    "playlistId": "UUmWyesNAlftV3kJlFhD6q6w",
+    "position": 0,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "e1qQGsMLo_8"
+    }
+   }
+  },
+  {
+
+   "kind": "youtube#playlistItem",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/2BL_vqh2iKtn1U-L3DHVNymr05c\"",
+   "id": "VVVtV3llc05BbGZ0VjNrSmxGaEQ2cTZ3LjZwbm5JNUlQXzRz",
+   "snippet": {
+    "publishedAt": "2016-04-26T03:00:01.000Z",
+    "channelId": "UCmWyesNAlftV3kJlFhD6q6w",
+    "title": "Talked About Scene: Episode 301: TURN: Washington's Spies: Valediction",
+    "description": "Richard Woodhull comes to Major Hewlett with an astonishing revelation. For more TURN: Washington's Spies videos: http://goo.gl/3cTVYC.\n\nSubscribe to the AMC YouTube Channel : http://goo.gl/qSMzej\nAMC : http://www.amctv.com/\nAMC on Facebook : https://www.facebook.com/amc\nAMC on Twitter : http://twitter.com/AMC_TV\nSign Up for the AMC Newsletter : http://www.amc.com/newsletter-subscription\nTURN: Washington's Spies: http://goo.gl/3cTVYC",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/6pnnI5IP_4s/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/6pnnI5IP_4s/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/6pnnI5IP_4s/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/6pnnI5IP_4s/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/6pnnI5IP_4s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "amc",
+    "playlistId": "UUmWyesNAlftV3kJlFhD6q6w",
+    "position": 1,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "6pnnI5IP_4s"
+    }
+   }
+  },
+  {
+
+   "kind": "youtube#playlistItem",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/xGt8DrKuGOsl6wtm8KEG7t5GFDw\"",
+   "id": "VVVtV3llc05BbGZ0VjNrSmxGaEQ2cTZ3LnNYemdIZUxETTJV",
+   "snippet": {
+    "publishedAt": "2016-04-25T02:00:52.000Z",
+    "channelId": "UCmWyesNAlftV3kJlFhD6q6w",
+    "title": "Sneak Peek: Ride With Norman Reedus",
+    "description": "Norman and his friends take in some awesome views in the desert. Series premieres June 12 at 10/9c on AMC. For more Ride with Norman Reedus: https://goo.gl/Z9BQGd\n\nSubscribe to the AMC YouTube Channel : http://goo.gl/qSMzej\nAMC : http://www.amctv.com/\nAMC on Facebook : https://www.facebook.com/amc\nAMC on Twitter : http://twitter.com/AMC_TV\nSign Up for the AMC Newsletter : http://www.amc.com/newsletter-subscri...\nRide with Norman Reedus: https://goo.gl/Z9BQGd",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/sXzgHeLDM2U/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/sXzgHeLDM2U/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/sXzgHeLDM2U/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/sXzgHeLDM2U/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/sXzgHeLDM2U/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "amc",
+    "playlistId": "UUmWyesNAlftV3kJlFhD6q6w",
+    "position": 2,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "sXzgHeLDM2U"
+    }
+   }
+  },
+  {
+
+   "kind": "youtube#playlistItem",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/-6PRqFYN7uAiicsBG7c5sOg9Urk\"",
+   "id": "VVVtV3llc05BbGZ0VjNrSmxGaEQ2cTZ3LmhGbXhvMGlLX2JR",
+   "snippet": {
+    "publishedAt": "2016-04-25T02:00:30.000Z",
+    "channelId": "UCmWyesNAlftV3kJlFhD6q6w",
+    "title": "Next on: Episode 204: Fear the Walking Dead: Blood In The Streets",
+    "description": "Don’t miss the next episode of Fear the Walking Dead, Sunday, May 1 at 9/8c. For more Fear the Walking Dead videos: https://goo.gl/P1AXdM\n\nDownload now for free: www.getdeadrun.com\n\nSubscribe to the AMC YouTube Channel : http://goo.gl/qSMzej\nAMC : http://www.amctv.com/\nAMC on Facebook : https://www.facebook.com/amc\nAMC on Twitter : http://twitter.com/AMC_TV\nSign Up for the AMC Newsletter : http://www.amc.com/newsletter-subscri...\nFear the Walking Dead: https://goo.gl/P1AXdM",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/hFmxo0iK_bQ/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/hFmxo0iK_bQ/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/hFmxo0iK_bQ/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/hFmxo0iK_bQ/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/hFmxo0iK_bQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "amc",
+    "playlistId": "UUmWyesNAlftV3kJlFhD6q6w",
+    "position": 3,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "hFmxo0iK_bQ"
+    }
+   }
+  },
+  {
+
+   "kind": "youtube#playlistItem",
+   "etag": "\"CuSCwMPVmgi8taDtE2LV6HdgkN0/oIXIk40uTR62_BDxDHveEttcV0s\"",
+   "id": "VVVtV3llc05BbGZ0VjNrSmxGaEQ2cTZ3LlN5bGYtV3l6RnFz",
+   "snippet": {
+    "publishedAt": "2016-04-25T02:00:34.000Z",
+    "channelId": "UCmWyesNAlftV3kJlFhD6q6w",
+    "title": "(SPOILERS) Talked About Scene: Episode 203: Fear the Walking Dead: Ouroboros",
+    "description": "Travis investigates a mechanical problem with the Abigail. For more Fear the Walking Dead videos: https://goo.gl/P1AXdM\n\nDownload now for free: www.getdeadrun.com\n\nSubscribe to the AMC YouTube Channel : http://goo.gl/qSMzej\nAMC : http://www.amctv.com/\nAMC on Facebook : https://www.facebook.com/amc\nAMC on Twitter : http://twitter.com/AMC_TV\nSign Up for the AMC Newsletter : http://www.amc.com/newsletter-subscri...\nFear the Walking Dead: https://goo.gl/P1AXdM",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/Sylf-WyzFqs/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/Sylf-WyzFqs/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/Sylf-WyzFqs/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Sylf-WyzFqs/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Sylf-WyzFqs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "amc",
+    "playlistId": "UUmWyesNAlftV3kJlFhD6q6w",
+    "position": 4,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Sylf-WyzFqs"
+    }
+   }
+  }
+ ]
+} -->

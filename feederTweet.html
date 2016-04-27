@@ -1,0 +1,698 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Trending Feeds</title> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet"
+         href="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css"/>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^https:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "82f284c2-76ea-48f6-a86b-6bb5179df83e", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+</head>
+
+<body>
+<div data-role="page" class="type-interior" id="trendingPage">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <center><p>Trending Feeds</p></center>
+    <h1>BINGEFEED.COM</h1>
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#demPolitics">
+        <img src="http://www.slhscargo.org/wp-content/uploads/2016/03/the_origins_of_the_democratic_symbol-300x300.jpg" /> <!-- dem symbol photo -->
+        <h3>Democrat News</h3>
+        <p>AMERICAN POLITICS</p>
+      </a></li>
+      <li><a href="#repPolitics">
+        <img src="https://mythoughtonline.files.wordpress.com/2015/06/republican-party-logo.jpg?w=300&h=300" /> <!-- repub symbol photo -->
+        <h3>Republican News</h3>
+        <p>AMERICAN POLITICS</p>
+      </a></li>
+      <li><a href="#deadTelevision">
+        <img src="https://d919ce141ef35c47fc40-b9166a60eccf0f83d2d9c63fa65b9129.ssl.cf5.rackcdn.com/images/216023.2e16d0ba.fill-300x300.jpg" /> <!-- walking dead photo -->
+        <h3>Walking Dead</h3>
+        <p>TV</p>
+      </a></li>
+      <li><a href="#billionsTelevision">
+        <img src="http://www.tobylmoorefans.com/wp-content/uploads/2015/07/billions-300x300.jpg" /> <!-- billions tv show photo -->
+        <h3>Billions</h3>
+        <p>TV</p>
+      </a></li>
+      <li><a href="#houseofcardsTelevision">
+        <img src="http://www.cultureblues.com/wp-content/uploads/2013/02/house-of-cards-1-300x300.jpg" /> <!-- house of cards tv show photo -->
+        <h3>House Of Cards</h3>
+        <p>TV</p>
+      </a></li>
+      <li><a href="#gameofthronesTelevision">
+        <img src="http://www.babyprepping.com/wp-content/uploads/2015/10/Khaleesi-300x300.jpeg" /> <!-- game of thrones tv show photo -->
+        <h3>Game of Thrones</h3>
+        <p>TV</p>
+      </a></li>
+      <li><a href="#ncaaNews">
+        <img src="https://yt3.ggpht.com/-jtqylqiswe8/AAAAAAAAAAI/AAAAAAAAAAA/smbsBG4Efts/s300-c-k-no/photo.jpg" /> <!-- ncaa logo photo -->
+        <h3>NCAA</h3>
+        <p>NEWS March Madness</p>
+      </a></li>
+      <li><a href="#nbaNews">
+        <img src="https://nwssportscastcomblog.files.wordpress.com/2016/02/nba_logo.jpg?w=300&h=300&crop=1" /> <!-- nba logo photo -->
+        <h3>NBA</h3>
+        <p>NEWS</p>
+      </a></li>
+      
+      <li><a href="#gameingIndustryNews">
+        <img src="http://live-timelybuild-40c40ad29e.time.ly/wp-content/uploads/2015/04/gaming.jpg" />  <!-- gaming controller symbol photo -->
+        <h3>Gaming</h3>
+        <p>NEWS</p>
+      </a></li>
+      
+      <li><a href="#tradingNews">
+        <img src="http://splendidtoad.com/en/gpogadu/world-stock-market-price8363.jpg" /> <!-- trading ticker photo -->
+        <h3>Trading</h3>
+        <p>NEWS</p>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#" data-icon="grid">Trending</a></li>
+      <li><a href="#" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+<div data-role="page" class="type-interior" id="homePage">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <center><p>BINGEFEED.COM</p></center>
+    <h1>latest comic news</br> sports news & more</h1>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#businessFinance">
+        <img src="http://splendidtoad.com/en/gpogadu/world-stock-market-price8363.jpg" /> <!-- trading ticker photo -->
+        <h3>business & finance</h3>
+      </a></li>
+      <li><a href="#comicBooks">
+        <img src="http://blogs-images.forbes.com/carolpinchefsky/files/2012/05/SleepingGirl-300x300.jpg" /> <!-- comic girl photo -->
+        <h3>comic books</h3>
+      </a></li>
+      <li><a href="#news">
+        <img src="http://4.bp.blogspot.com/-SQ5A5lj9M5I/T_QjTJ5SpiI/AAAAAAAAECc/Pi49aL-Lnvg/s640/newspaper+icon+vector-4.jpg" /> <!-- newspape photo -->
+        <h3>news</h3>
+      </a></li>
+      <li><a href="#entertainment">
+        <img src="http://www.seacoastkidscalendar.com/wp-content/uploads/2013/06/family_movie.jpg" /> <!-- watching 3D movie photo -->
+        <h3>entertainment</h3>
+      </a></li>
+      <li><a href="#sports">
+        <img src="https://lh5.ggpht.com/eHym459mpTMxS3sf6Us4RxLA7xHQlArriwP3tcK4jbt1lZAD45ejaLwGtfypuDv6a0PQ=w300" /> <!-- sports photo -->
+        <h3>sports</h3>
+      </a></li>
+      <li><a href="#gameing">
+        <img src="http://live-timelybuild-40c40ad29e.time.ly/wp-content/uploads/2015/04/gaming.jpg" />  <!-- gaming controller symbol photo -->
+        <h3>gaming</h3>
+      </a></li>
+
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#homePage" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+<div data-role="page" class="type-interior" id="businessFinance">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>BUSINESS & FINANCE</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#business">
+        <h3>business</h3>
+      </a></li>
+      <li><a href="#finance">
+        <h3>finance</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#businessFinance" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="comicBooks">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>Comic Books</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#dcComics">
+        <h3>dc comics</h3>
+      </a></li>
+      <li><a href="#comicIndustryNews">
+        <h3>industry news</h3>
+      </a></li>
+      <li><a href="#marvelComics">
+        <h3>marvel comics</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#comicBooks" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="news">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>NEWS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#currentEvents">
+        <h3>current events</h3>
+      </a></li>
+      <li><a href="#politics">
+        <h3>politics</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#news" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="entertainment">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>ENTERTAINMENT</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#anime">
+        <h3>anime</h3>
+      </a></li>
+      <li><a href="#politics">
+        <h3>politics</h3>
+      </a></li>
+      <li><a href="#entertainmentIndustryNews">
+        <h3>industry news</h3>
+      </a></li>
+      <li><a href="#realityTV">
+        <h3>reality tv</h3>
+      </a></li>
+      <li><a href="#scienceFictionFantasy">
+        <h3>science fiction & fantasy</h3>
+      </a></li>
+      <li><a href="#tvVideoSeries">
+        <h3>television & video series</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#entertainment" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="sports">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>SPORTS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#boxing"> <!-- boxing news -->
+        <h3>boxing</h3>
+      </a></li>
+      <li><a href="#golf"> <!-- golfing news -->
+        <h3>golf</h3>
+      </a></li>
+      <li><a href="#baseball">
+        <h3>baseball</h3> <!-- MLB NEWS -->
+      </a></li>
+      <li><a href="#mixedMartialArts">
+        <h3>mixed martial arts </h3> <!-- MMA NEWS -->
+      </a></li>
+      <li><a href="#basketball"> <!-- NBA and NCAAM news -->
+        <h3>basketball</h3>
+      </a></li>
+      <li><a href="#football"> <!-- NCAAF NFL -->
+        <h3>american football</h3>
+      </a></li>
+      </a></li>
+      <li><a href="#hockey"> <!-- NHL NEWS -->
+        <h3>hockey</h3>
+      </a></li>
+      <li><a href="#soccer"> <!-- Soccer News -->
+        <h3>soccer</h3>
+      </a></li>
+      <li><a href="#wrestling"> <!--WWE -->
+        <h3>wrestling</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#sports" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="gameing">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>GAMING</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#gameFeeds">
+        <h3>game feeds</h3>
+      </a></li>
+      <li><a href="#gameingIndustryNews">
+        <h3>industry news</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#gaming" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="business">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>BUSINESS NEWS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+    <a class="twitter-timeline" href="https://twitter.com/search?q=rom%3Acnbcworld%20OR%20from%3Abusinessinsider%20OR%20from%3AFoxBusiness%20OR%20from%3AInc%20OR%20from%3ACNNMoney%20OR%20from%3AForbes%20OR%20from%3Anytimesbusinesss%20OR%20from%3Abusiness%20OR%20from%3Acnbc%20OR%20from%3AFT%20OR%20from%3ABrady_FBN%20OR%20from%3AAPBusiness" data-widget-id="710872108008611845">Tweets about rom:cnbcworld OR from:businessinsider OR from:FoxBusiness OR from:Inc OR from:CNNMoney OR from:Forbes OR from:nytimesbusinesss OR from:business OR from:cnbc OR from:FT OR from:Brady_FBN OR from:APBusiness</a>
+
+  </div>
+
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#business" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="finance">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>FINANCE</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#investing">
+        <h3>investing</h3>
+      </a></li>
+      <li><a href="#tradingNews">
+        <h3>trading</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#finance" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="investing">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>INVESTING</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+   <a class="twitter-timeline" href="https://mobile.twitter.com/search?q=from%3AForbesInvestor%20OR%20from%3AReutersBiz%20OR%20from%3Arichardbranson%20OR%20from%3Amoneyqanda%20OR%20from%3AModestMoney%20OR%20from%3AGOBankingRates%20OR%20from%3Ajimcramer%20OR%20from%3AMarketWatch%20OR%20from%3AMONEY%20OR%20from%3AFortuneMagazine%20OR%20from%3ACNNMoney%20OR%20from%3ATherese321%20OR%20from%3ALivetradingnews%20OR%20from%3ATaylorTepper%20OR%20from%3AnewsfromIN%20OR%20from%3ABreakingviews" data-widget-id="710898360136417282">Tweets about from:ForbesInvestor OR from:ReutersBiz OR from:richardbranson OR from:moneyqanda OR from:ModestMoney OR from:GOBankingRates OR from:jimcramer OR from:MarketWatch OR from:MONEY OR from:FortuneMagazine OR from:CNNMoney OR from:Therese321 OR from:Livetradingnews OR from:TaylorTepper OR from:newsfromIN OR from:Breakingviews</a>
+  </div>
+
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#investing" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="tradingNews">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>TRADING</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+   <a class="twitter-timeline" href="https://twitter.com/search?q=from%3AStockTwits%20OR%20from%3AMarketWatch%20OR%20from%3AJeffMacke%20OR%20from%3Ajimcramer%20OR%20from%3Ajonnajarian%20OR%20from%3AMaroonAndGolden%20OR%20from%3ACNBC%20OR%20from%3ASquawkCNBC" data-widget-id="710902842547183616">Tweets about from:StockTwits OR from:MarketWatch OR from:JeffMacke OR from:jimcramer OR from:jonnajarian OR from:MaroonAndGolden OR from:CNBC OR from:SquawkCNBC</a>
+  </div>
+
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#tradingNews" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="politics">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>Politics</h1><a href="../" data-rel="back" data-ajax="false" data-role="button">Back</a>
+    
+      
+  </div><!-- /header -->
+<div>
+<!--   <div data-role="content">
+    <div class="content-primary">  -->
+    <ul data-role="listview">
+      <li><a href="#demPolitics">
+        <img src="http://www.slhscargo.org/wp-content/uploads/2016/03/the_origins_of_the_democratic_symbol-300x300.jpg" /> <!-- dem symbol photo -->
+        <h3>Democrat News</h3>
+      </a></li>
+      <li><a href="#repPolitics">
+        <img src="https://mythoughtonline.files.wordpress.com/2015/06/republican-party-logo.jpg?w=300&h=300" /> <!-- repub symbol photo -->
+        <h3>Republican News</h3>
+      </a></li>
+    </ul>
+  </div>
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#finance" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="demPolitics">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>DECMOCRAT NEWS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+   <a class="twitter-timeline" href="https://twitter.com/search?q=from%3Athedailybeast%20OR%20from%3Aprogressivepush%20OR%20from%3ALOLGOP%20OR%20from%3AEdwardErikson%20OR%20from%3APolitics_PR%20OR%20from%3AMoveON%20OR%20from%3AWanderer19%20OR%20from%3ADemGovs%20OR%20from%3Athinkprogress%20OR%20from%3ABernieSander%20OR%20from%3AWhiteHouse%20OR%20from%3AHuffingtonPost%20OR%20from%3AHillaryClinton" data-widget-id="710913511430295553">Tweets about from:thedailybeast OR from:progressivepush OR from:LOLGOP OR from:EdwardErikson OR from:Politics_PR OR from:MoveON OR from:Wanderer19 OR from:DemGovs OR from:thinkprogress OR from:BernieSander OR from:WhiteHouse OR from:HuffingtonPost OR from:HillaryClinton</a>
+  </div>
+
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#demPolitics" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="repPolitics">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>REPUBLICAN NEWS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+<a class="twitter-timeline" href="https://twitter.com/search?q=from%3AJimDeMint%20OR%20from%3Atoddstarnes%20OR%20from%3ARightWingArt%20OR%20from%3AHASCRepublicans%20OR%20from%3AFreedomWorks%20OR%20from%3AHeyTammyBruce%20OR%20from%3Atoddstarnes%20OR%20from%3ARichLowry%20OR%20from%3Arepublicanstudy%20OR%20from%3Anewsbusters%20OR%20from%3AForAmerica%20OR%20from%3AGovAbbott%20OR%20from%3AMarkRMatthews%20OR%20from%3AMonicaCrowley%20OR%20from%3Aamandacarpenter%20OR%20from%3Aericboiling%20OR%20from%3ADonaldTrump%20OR%20from%3AAllenWest%20OR%20from%3ANRSC%20OR%20from%3Atheblaze%20OR%20from%3Afoxandfriends" data-widget-id="710933356180017152">Tweets about from:JimDeMint OR from:toddstarnes OR from:RightWingArt OR from:HASCRepublicans OR from:FreedomWorks OR from:HeyTammyBruce OR from:toddstarnes OR from:RichLowry OR from:republicanstudy OR from:newsbusters OR from:ForAmerica OR from:GovAbbott OR from:MarkRMatthews OR from:MonicaCrowley OR from:amandacarpenter OR from:ericboiling OR from:DonaldTrump OR from:AllenWest OR from:NRSC OR from:theblaze OR from:foxandfriends</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#demPolitics" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="deadTelevision">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>THE WALKING DEAD</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+<a class="twitter-timeline" href="https://twitter.com/search?q=from%3ADanaiGurira%20OR%20from%3AWalkingDead_AMC%20OR%20from%3Awww.bigbaldhead%20OR%20from%3AWalkingDeadArmy%20OR%20from%3AAMCTalkingDead%20OR%20from%3AFearTWDFamily%20OR%20from%3AGunnerGale%20OR%20from%3AWalkingDeadLife%20OR%20from%3ATheWalkingDead%20OR%20from%3AWalkingDeadTVF" data-widget-id="710940379189796864">Tweets about from:DanaiGurira OR from:WalkingDead_AMC OR from:www.bigbaldhead OR from:WalkingDeadArmy OR from:AMCTalkingDead OR from:FearTWDFamily OR from:GunnerGale OR from:WalkingDeadLife OR from:TheWalkingDead OR from:WalkingDeadTVF</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#deadTelevision" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="billionsTelevision">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>BILLIONS</h1><a href="#trendingPage" data-role="button"  data-mini="true">Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+<a class="twitter-timeline" href="https://twitter.com/search?q=from%3AFanFunDamian%20OR%20from%3ASHO_Billions%20OR%20from%3Abriankoppelman%20OR%20from%3Aandrewrsorkin" data-widget-id="710947511750541314">Tweets about from:FanFunDamian OR from:SHO_Billions OR from:briankoppelman OR from:andrewrsorkin</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#billionsTelevision" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="houseofcardsTelevision">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>HOUSE OF CARDS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+  <a class="twitter-timeline" href="https://twitter.com/search?q=from%3AHouseOfCardsPro%20OR%20from%3AJargan%20OR%20from%3AHouseofCards%20OR%20from%3AConstanceZimmer%20OR%20from%3ARealRobinWright%20OR%20from%3AHOC_Quotes%20OR%20from%3AKevinSpacey%20OR%20from%3AHouseofcardsIt" data-widget-id="711238253647675394">Tweets about from:HouseOfCardsPro OR from:Jargan OR from:HouseofCards OR from:ConstanceZimmer OR from:RealRobinWright OR from:HOC_Quotes OR from:KevinSpacey OR from:HouseofcardsIt</a>
+  </div>
+
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#houseofcardsTelevision" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="gameofthronesTelevision">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>GAME OF THRONES</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a>
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+  <a class="twitter-timeline" href="https://twitter.com/search?q=from%3AGameOfThrones%20OR%20from%3AGameofThrones24%20OR%20from%3AWiCnet%20OR%20from%3Awesterosorg%20OR%20from%3Adaniel_portman%20OR%20from%3Alovegwendoline" data-widget-id="711243257053847552">Tweets about from:GameOfThrones OR from:GameofThrones24 OR from:WiCnet OR from:westerosorg OR from:daniel_portman OR from:lovegwendoline</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#gameofthronesTelevision" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="ncaaNews">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>NCAA</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a> 
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+  <a class="twitter-timeline" href="https://twitter.com/search?q=from%3AGoodmanESPN%20OR%20from%3AGottliebShow%20OR%20from%3Afranfraschilla%20OR%20from%3ANCAA%20OR%20from%3AESPNCBB%20OR%20from%3AESPNDanaOneil%20OR%20from%3AESPNAndyKatz%20OR%20from%3ASethDavisHoops%20OR%20from%3AGCtalks%20OR%20from%3Amarchmadness%20OR%20from%3Atom_hart%20OR%20from%3Atsnmike%20OR%20from%3Astevelavin64%20OR%20from%3Anicoleauerbach" data-widget-id="711250634998157312">Tweets about from:GoodmanESPN OR from:GottliebShow OR from:franfraschilla OR from:NCAA OR from:ESPNCBB OR from:ESPNDanaOneil OR from:ESPNAndyKatz OR from:SethDavisHoops OR from:GCtalks OR from:marchmadness OR from:tom_hart OR from:tsnmike OR from:stevelavin64 OR from:nicoleauerbach</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#ncaaNews" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="nbaNews">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>NBA</h1><a href="../" data-rel="back" data-ajax="false" data-role="button"  >Back</a> 
+    
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+ <a class="twitter-timeline" href="https://twitter.com/search?q=from%3ANBAcom%20OR%20from%3AHoustonRockets%20OR%20from%3AWashWizards%20OR%20from%3ASuns%20OR%20from%3ANBATV%20OR%20from%3APacers%20OR%20from%3AGoodmanESPN%20OR%20from%3AWashWizards%20OR%20from%3ALakers%20OR%20from%3Amemgrizz%20OR%20from%3Awarriors%20%20OR%20from%3ADetroitPistons%20OR%20from%3Atimberwolves%20OR%20from%3ALAClippers%20OR%20from%3ARaptors%20OR%20from%3Achicagobulls%20OR%20from%3ACP3%20OR%20from%3ABucks%20OR%20from%3Abasketballtalk" data-widget-id="711256058828869632">Tweets about from:NBAcom OR from:HoustonRockets OR from:WashWizards OR from:Suns OR from:NBATV OR from:Pacers OR from:GoodmanESPN OR from:WashWizards OR from:Lakers OR from:memgrizz OR from:warriors OR from:DetroitPistons OR from:timberwolves OR from:LAClippers OR from:Raptors OR from:chicagobulls OR from:CP3 OR from:Bucks OR from:basketballtalk</a>
+  </div>
+  
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#nbaNews" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<div data-role="page" class="type-interior" id="gameingIndustryNews">
+
+    <div data-role="header" data-position="fixed"> <!-- data-theme="f" > -->
+    <h1>GAMING NEWS</h1><a href="../" data-rel="back" data-ajax="false" data-role="button" >Back</a> 
+      
+  </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+<a class="twitter-timeline" href="https://twitter.com/search?q=from%3AVideoGameNews%20OR%20from%3AIGN%20OR%20from%3Agameinformer%20OR%20from%3AMLG%20OR%20from%3APolygon%20OR%20from%3AVGFGamers%20OR%20from%3AIGN%20OR%20from%3ATwitch%20OR%20from%3AGamesRadar%20OR%20from%3AEA%20OR%20from%3Agamespot%20OR%20from%3AVlDEOGAMES%20OR%20from%3Amarkiplier%20OR%20from%3AKotaku%20OR%20from%3ANintendoAmerica%20OR%20from%3ARockstarGames%20OR%20from%3AVideoGameWeekly%20OR%20from%3AGameStop%20OR%20from%3Adevolverdigital%20OR%20from%3Ajoystiq%20OR%20from%3ADiamondMinecart%20OR%20from%3Asteam_games" data-widget-id="711260825315635200">Tweets about from:VideoGameNews OR from:IGN OR from:gameinformer OR from:MLG OR from:Polygon OR from:VGFGamers OR from:IGN OR from:Twitch OR from:GamesRadar OR from:EA OR from:gamespot OR from:VlDEOGAMES OR from:markiplier OR from:Kotaku OR from:NintendoAmerica OR from:RockstarGames OR from:VideoGameWeekly OR from:GameStop OR from:devolverdigital OR from:joystiq OR from:DiamondMinecart OR from:steam_games</a>
+  </div>
+
+    <div data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="#homePage" data-icon="home">Topics</a></li>
+      <li><a href="#trendingPage" data-icon="grid">Trending</a></li>
+      <li><a href="#gameingIndustryNews" data-icon="share"><span class='st_sharethis'</span>Share</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+
+</body>
+</html>
