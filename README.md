@@ -5,14 +5,15 @@
 ### Old Viewer
 ``` markdown
 The present news feed app is a great resource but needs to look more attractive to the viewer.
-It is a phone app and web app that pulls up curated twitter feeds.
+It is a phone app and web app that pulls up curated twitter feeds. You can only access through dropdown menus which can feel tedious
 ```
 
 ![newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedOG1.png)
+![newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
 
 ### New Viewer
 ``` markdown
-Will use jquery mobile update the look of the app.
+Will use jquery mobile update the look of the app. The a clickable menu appears rather than a dropdown menu
 ```
 ![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png)
 ![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
