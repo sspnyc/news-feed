@@ -1,2 +1,2 @@
-# news-feed
-creating a curated news feed from social networks
+# Creating creating a curated news feed from social networks
+
