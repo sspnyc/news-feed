@@ -49,8 +49,9 @@ New Viewer Chosen from sub menu feeds from twitter api
 
 ### YouTube Viewer
 ``` markdown
-page that has a YouTube feed
+youtube viewer page from youtube api
 ```
+![tubefeed](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1dyoutube.png)
 
 
 
