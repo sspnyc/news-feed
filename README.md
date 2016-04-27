@@ -1,6 +1,6 @@
-##This News Feeder is designed to bring Twitter feeds to people that are relevant and pertain to the topics that you love in ##news, movies,TV, gaming and more....  
+###This News Feeder is designed to bring Twitter feeds to people that are relevant and pertain to the topics that you love in news, movies,TV, gaming and more....  
 
-##For each topic, there will be sought out experts and those closest to the subject matter to put in one feed to view.
+###For each topic, there will be sought out experts and those closest to the subject matter to put in one feed to view.
 
 ### Old Viewer
 ``` markdown
@@ -14,15 +14,18 @@ dropdown menus which can feel tedious
 
 ### New Viewer
 ``` markdown
-Will use jquery mobile update the look of the app. The a clickable menu appears 
+Will use jquery mobile update the look of the app. 
+The a clickable menu appears 
 rather than a dropdown menu
 ```
 ![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png)
 ![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
 
 ``` markdown
-Will use twitter api to generate custom feeds
+Will use twitter api 
+to generate custom feeds
 ```
+![newfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingfeedNew1ctweet.png)
 
 
 
