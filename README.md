@@ -21,11 +21,11 @@ dropdown menus which can feel tedious
 Old Viewer Home Page
 ```
 
-[newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedOG1.png)
+![newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedOG1.png)
 ``` markdown
 Old Viewer dropdown menu
 ```
-[newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedOG2.png)
+![newsfeedOG](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedOG2.png)
 
 ### New Viewer
 ``` markdown
@@ -36,22 +36,22 @@ rather than a dropdown menu
 ``` markdown
 New Viewer Home Page click menu
 ```
-[newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png)
+![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png)
 ``` markdown
 New Viewer chosen click submenu
 ```
-[newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
+![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1b.png)
 
 ``` markdown
 New Viewer Chosen from sub menu feeds from twitter api
 ```
-[newfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingfeedNew1ctweet.png)
+![newfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingfeedNew1ctweet.png)
 
 ### YouTube Viewer
 ``` markdown
 youtube viewer page from youtube api
 ```
-[tubefeed](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1dyoutube.png)
+![tubefeed](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1dyoutube.png)
 
 
 
