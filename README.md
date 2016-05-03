@@ -9,6 +9,7 @@ I still need to: <br>
 * create and map out a json file for categories and topics / database ERD (entity relationship diagram)
 * create a proper wireframe
 * plug feeds from instagram and vine api's
+* then combine all social media feeds as one feed
 
 
 ### Old Viewer
