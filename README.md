@@ -38,7 +38,7 @@ rather than a dropdown menu
 ``` markdown
 New Viewer Home Page click menu
 ```
-![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png?w=324&h=292")
+![newsfeedUpdate](https://raw.githubusercontent.com/sspnyc/news-feed/master/bingefeedNew1a.png?w=324&h=292)
 ``` markdown
 New Viewer chosen click submenu
 ```
