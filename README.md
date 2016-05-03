@@ -6,9 +6,10 @@
 
 The following is what I was able to complete so far. <br>
 I still need to: <br>
-* create and map out a json file for categories and topics
+* create and map out a json file for categories and topics / database ERD (entity relationship diagram)
+* create a proper wireframe
 * plug feeds from instagram and vine api's
-* create a proper wireframe and database ERD (entity relationship diagram)
+
 
 ### Old Viewer
 ``` markdown
