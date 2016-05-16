@@ -1,117 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html> 
+<html>
 <head>
-  <!-- http://codepen.io/jasonmayes/pen/Ioype -->
-  <meta charset="UTF-8">
   <title>twitter api</title>
-  <script>
-  h2 {
-  clear:both;
+
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+   <!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  // <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+ <script>
+ .twitterfeed {
+  display: block;
+  margin: 0;
+  padding: 0;
+  
+  & > li {
+    list-style-type: none;
+    background-color: #e1eff5;
+    
+    &:nth-child(2n) {
+      background-color: #c2deea;
+    }
+  }
 }
 
-p, a {
-  font-size:9pt;
-  margin:10px 0 0 0;
-  color:#3d3d3d;
+.twitterfeed > .tweet {
+  padding:15px 35px 35px 15px;
 }
 
-a, a:visited {
-  color:#427fed;
+.tweet__user {
+  [data-scribe="element:avatar"] {
+    display: none;
+  }
+  
+  [data-scribe="element:name"] {
+    display: none;
+  }
+  
+  [data-scribe="element:verified_badge"] {
+    display: none;
+  }
 }
 
-a:hover {
-  color:#82afff;
+.tweet__content {
+  margin: 0 0 10px 0;
+  padding: 0;
+  
+  a {
+    word-break: break-all;
+    word-wrap: break-word;
+    text-decoration: none;
+    color: #0798D1;
+  }
 }
 
-ul li {
-  list-style:none;
-  overflow:hidden;
-  border:1px solid #dedede;
-  margin:5px;
-  padding:5px;
+.tweet__footer {
+  margin: 0;
+  padding: 0;
+  
+  li {
+    display: inline-block;
+    list-style-type: none;
+    
+    & > * {
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    &:not(:last-of-type):after {
+      content:"•";
+      margin: 0 3px;
+    }
+  }
+  .tweet__timePosted { 
+  }
 }
 
-ul li:hover {
-  background-color:#f0f3fb;
+.tweet media img {
 }
+ </script>
 
-.user, .tweet, .timePosted {
-  float:left;
-}
-
-.user {
-  width:25%;
-}
-
-.tweet {
-  width:50%;
-}
-
-.timePosted {
-  width:15%;
-}
-
-.user {
-  clear:left;
-}
-
-.user a {
- width: 100px;
-}
-
-.user span span {
-  width:100px;
-  display:block;
-  margin-top:10px;
-}
-
-.user img, .user a > span {
-  float:left;
-}
-
-.interact {
-  float:left;
-  width:10%;
-  margin-top:-7px;
-}
-
-.interact a {
-  margin-left:5px;
-  float:left;
-}
-
-.user a > span {
-  margin-left:10px;
-}
-
-.media img {
-  max-width:250px;
-  max-height:250px;
-}
-
-#linkage {
-  position:fixed;
-  top:0px;
-  right:0px;
-  background-color:#3d3d3d;
-  color:#ffffff;
-  text-decoration:none;
-  padding:5px;
-  width:10%;
-  font-family:arial;
-}
-  </script>
   <script type="text/javascript">
-  /*********************************************************************
-*  #### Twitter Post Fetcher v15.0.1 ####
-*  Coded by Jason Mayes 2015. A present to all the developers out there.
-*  www.jasonmayes.com
-*  Please keep this disclaimer with my code if you use it. Thanks. :-)
-*  Got feedback or questions, ask here:
-*  http://www.jasonmayes.com/projects/twitterApi/
-*  Github: https://github.com/jasonmayes/Twitter-Post-Fetcher
-*  Updates will be posted to this site.
-*********************************************************************/
+//   ********************************************************************
+// *  #### Twitter Post Fetcher v15.0.1 ####
+// *  Coded by Jason Mayes 2015. A present to all the developers out there.
+// *  www.jasonmayes.com
+// *  Please keep this disclaimer with my code if you use it. Thanks. :-)
+// *  Got feedback or questions, ask here:
+// *  http://www.jasonmayes.com/projects/twitterApi/
+// *  Github: https://github.com/jasonmayes/Twitter-Post-Fetcher
+// *  Updates will be posted to this site.
+// ********************************************************************
 (function(C,p){"function"===typeof define&&define.amd?define([],p):"object"===typeof exports?module.exports=p():p()})(this,function(){function C(a){if(null===r){for(var g=a.length,c=0,k=document.getElementById(D),f="<ul>";c<g;)f+="<li>"+a[c]+"</li>",c++;k.innerHTML=f+"</ul>"}else r(a)}function p(a){return a.replace(/<b[^>]*>(.*?)<\/b>/gi,function(a,c){return c}).replace(/class="(?!(tco-hidden|tco-display|tco-ellipsis))+.*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function E(a){a=a.getElementsByTagName("a");
 for(var g=a.length-1;0<=g;g--)a[g].setAttribute("target","_blank")}function l(a,g){for(var c=[],k=new RegExp("(^| )"+g+"( |$)"),f=a.getElementsByTagName("*"),h=0,b=f.length;h<b;h++)k.test(f[h].className)&&c.push(f[h]);return c}function F(a){if(void 0!==a&&0<=a.innerHTML.indexOf("data-srcset"))return a=a.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],decodeURIComponent(a).split('"')[1]}var D="",g=20,G=!0,v=[],x=!1,y=!0,w=!0,z=null,A=!0,B=!0,r=null,H=!0,I=!1,t=!0,J=!0,K=!1,m=null,L={fetch:function(a){void 0===
 a.maxTweets&&(a.maxTweets=20);void 0===a.enableLinks&&(a.enableLinks=!0);void 0===a.showUser&&(a.showUser=!0);void 0===a.showTime&&(a.showTime=!0);void 0===a.dateFunction&&(a.dateFunction="default");void 0===a.showRetweet&&(a.showRetweet=!0);void 0===a.customCallback&&(a.customCallback=null);void 0===a.showInteraction&&(a.showInteraction=!0);void 0===a.showImages&&(a.showImages=!1);void 0===a.linksInNewWindow&&(a.linksInNewWindow=!0);void 0===a.showPermalinks&&(a.showPermalinks=!0);void 0===a.dataOnly&&
@@ -190,7 +175,7 @@ c.push(b);d++}C(c);x=!1;0<v.length&&(L.fetch(v[0]),v.splice(0,1))}};return windo
 // id "example1". Also automatically hyperlinks URLS and user mentions and
 // hashtags.
 var config1 = {
-  "id": '710902842547183616',
+  "id": '345170787868762112',
   "domId": 'example1',
   "maxTweets": 1,
   "enableLinks": true,
@@ -206,7 +191,7 @@ twitterFetcher.fetch(config1);
 // request to Twitter specifiying we would like results where possible in
 // English language.
 var config2 = {
-  "id": '710902842547183616',
+  "id": '347099293930377217',
   "domId": 'example2',
   "maxTweets": 5,
   "enableLinks": true, 
@@ -221,7 +206,7 @@ twitterFetcher.fetch(config2);
 // A simple example to get latest 5 tweets for #API tag and shows any images
 // attached to tweets.
 var config3 = {
-  "id": '710902842547183616',
+  "id": '502160051226681344',
   "domId": 'example3',
   "maxTweets": 5,
   "enableLinks": true,
@@ -236,7 +221,7 @@ twitterFetcher.fetch(config3);
 // custom format to display the date/time of the post, and does not show
 // retweets.
 var config4 = {
-  "id": '710902842547183616',
+  "id": '345690956013633536',
   "domId": 'example4',
   "maxTweets": 3,
   "enableLinks": true,
@@ -264,7 +249,7 @@ twitterFetcher.fetch(config4);
 // if you need full control over the output.
 
 var config5 = {
-  "id": '710902842547183616',
+  "id": '345690956013633536',
   "domId": '',
   "maxTweets": 3,
   "enableLinks": true,
@@ -293,8 +278,11 @@ twitterFetcher.fetch(config5);
   </script>
 </head>
 <body>
-  <a id="linkage" href="http://www.jasonmayes.com/projects/twitterApi/" target="_blank">Visit my website</a>
-    <h2>Query 1: TRADING NEWS latest tweet</h2>
+  <body>
+
+
+ <a id="linkage" href="http://www.jasonmayes.com/projects/twitterApi/" target="_blank">Visit my website</a>
+    <h2>Query 1: My latest tweet</h2>
     <div id="example1"></div>
     <h2>Query 2: What people are saying about this component!</h2>
     <div id="example2"></div>
@@ -304,5 +292,7 @@ twitterFetcher.fetch(config5);
     <div id="example4"></div>
     <h2>Query 5: Last 3 Twitter posts using hastag #API with custom callback</h2>
     <div id="example5"></div>
+
+
 </body>
 </html>
