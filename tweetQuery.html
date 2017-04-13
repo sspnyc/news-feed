@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>test page</title>
+  <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      console.log('doc ready!');
+
+      $('#submit').click(function(){
+        var search_term = {
+          q:'from:VideoGameNews'
+        };
+
+        search(search_term);
+      });
+    });
+
+    function search(search_term) {
+      console.log('search for ');
+      console.dir(search_term);
+
+      $.ajax({
+        url: 'https://api.twitter.com/1.1/search/tweets.json?' + $.param(search_term),
+        dataType: 'jsonp',
+        success: function(data) {
+        console.dir(data);
+        }
+
+    });
+}
+  </script>
+</head>
+<body>
+  <h1>New Tweets</h1>
+    <ol>
+      <li>fake tweet 1</li>
+      <li>fake tweet 2</li>
+    </ol>
+
+    <a href="#" id="submit">get tweets</a>
+  
+</body>
+</html>

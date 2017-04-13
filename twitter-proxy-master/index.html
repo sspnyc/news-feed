@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Twitter v1.1 API - A JavaScript and PHP solution</title>
+	</head>
+	<body>
+		<div class="tweets-container">
+			<p>Loading...</p>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+
+	$.ajax({
+		url: 'get_tweets.php',
+		type: 'GET',
+		success: function(response) {
+
+			if (typeof response.errors === 'undefined' || response.errors.length < 1) {
+				
+				var $tweets = $('<ul></ul>');
+				$.each(response, function(i, obj) {
+					$tweets.append('<li>' + obj.text + '</li>');
+				});
+
+				$('.tweets-container').html($tweets);
+
+			} else {
+				$('.tweets-container p:first').text('Response error');
+			}
+		},
+		error: function(errors) {
+			$('.tweets-container p:first').text('Request error');
+		}
+	});
+});
+		</script>
+
+		<?php
+		require_once('twitter_proxy.php');
+
+// Twitter OAuth Config options
+$oauth_access_token = '11312162-zJMfvivFG75zLHrOVAKzUUBindbv3HfW6hpGGidVQ';
+$oauth_access_token_secret = '  0IjbFEtGsMYv29RmjJf0Chh6a0gtkHPHC6MLCAmK3CuQy
+';
+$consumer_key = ' czvw8jYT63e5ZX3RW3tLnxnYI';
+$consumer_secret = '  QE9iK75I9fbZoxZAaeIbpY3OGDNcCAuaDqOHcMncD9byi5wnVC
+';
+$user_id = '78884300';
+$screen_name = 'parallax';
+$count = 5;
+
+$twitter_url = 'statuses/user_timeline.json';
+$twitter_url .= '?user_id=' . $user_id;
+$twitter_url .= '&screen_name=' . $screen_name;
+$twitter_url .= '&count=' . $count;
+
+// Create a Twitter Proxy object from our twitter_proxy.php class
+$twitter_proxy = new TwitterProxy(
+	$oauth_access_token,			// 'Access token' on https://apps.twitter.com
+	$oauth_access_token_secret,		// 'Access token secret' on https://apps.twitter.com
+	$consumer_key,					// 'API key' on https://apps.twitter.com
+	$consumer_secret,				// 'API secret' on https://apps.twitter.com
+	$user_id,						// User id (http://gettwitterid.com/)
+	$screen_name,					// Twitter handle
+	$count							// The number of tweets to pull out
+);
+
+// Invoke the get method to retrieve results via a cURL request
+$tweets = $twitter_proxy->get($twitter_url);
+
+echo $tweets;
+
+/**
+ * Similar to Facebook Apps, you'll need to create a Twitter app first: https://apps.twitter.com/
+ * 
+ * Code below from http://stackoverflow.com/questions/12916539/simplest-php-example-retrieving-user-timeline-with-twitter-api-version-1-1 by Rivers 
+ * with a few modfications by Mike Rogers to support variables in the URL nicely
+ */
+
+class TwitterProxy {
+
+	/**
+	 * The tokens, keys and secrets from the app you created at https://dev.twitter.com/apps
+	 */
+	private $config = [
+		'use_whitelist' => true, // If you want to only allow some requests to use this script.
+		'base_url' => 'https://api.twitter.com/1.1/'
+	];
+	
+	/**
+	 * Only allow certain requests to twitter. Stop randoms using your server as a proxy.
+	 */
+	private $whitelist = [];
+
+	/**
+	 *	@param	string	$oauth_access_token			OAuth Access Token			('Access token' on https://apps.twitter.com)
+	 *	@param	string	$oauth_access_token_secret	OAuth Access Token Secret	('Access token secret' on https://apps.twitter.com)
+	 *	@param	string	$consumer_key				Consumer key				('API key' on https://apps.twitter.com)
+	 *	@param	string	$consumer_secret			Consumer secret				('API secret' on https://apps.twitter.com)
+	 *	@param	string	$user_id					User id (http://gettwitterid.com/)
+	 *	@param	string	$screen_name				Twitter handle
+	 *	@param	string	$count						The number of tweets to pull out
+	 */
+	public function __construct($oauth_access_token, $oauth_access_token_secret, $consumer_key, $consumer_secret, $user_id, $screen_name, $count = 5) {
+
+		$this->config = array_merge($this->config, compact('oauth_access_token', 'oauth_access_token_secret', 'consumer_key', 'consumer_secret', 'user_id', 'screen_name', 'count'));
+
+		$this->whitelist['statuses/user_timeline.json?user_id=' . $this->config['user_id'] . '&screen_name=' . $this->config['screen_name'] . '&count=' . $this->config['count']] = true;
+	}
+
+	private function buildBaseString($baseURI, $method, $params) {
+		$r = [];
+		ksort($params);
+		foreach($params as $key=>$value){
+			$r[] = "$key=" . rawurlencode($value);
+		}
+
+		return $method . "&" . rawurlencode($baseURI) . '&' . rawurlencode(implode('&', $r));
+	}
+
+	private function buildAuthorizationHeader($oauth) {
+		$r = 'Authorization: OAuth ';
+		$values = [];
+		foreach($oauth as $key => $value) {
+			$values[] = "$key=\"" . rawurlencode($value) . "\"";
+		}
+		$r .= implode(', ', $values);
+
+		return $r;
+	}
+	
+	public function get($url) {
+		if (! isset($url)){
+			die('No URL set');
+		}		
+		 
+		if ($this->config['use_whitelist'] && ! isset($this->whitelist[$url])){
+			die('URL is not authorised');
+		}
+		 
+		// Figure out the URL parameters
+		$url_parts = parse_url($url);
+		parse_str($url_parts['query'], $url_arguments);
+		 
+		$full_url = $this->config['base_url'] . $url; // URL with the query on it
+		$base_url = $this->config['base_url'] . $url_parts['path']; // URL without the query
+		 
+		// Set up the OAuth Authorization array
+		$oauth = [
+			'oauth_consumer_key' => $this->config['consumer_key'],
+			'oauth_nonce' => time(),
+			'oauth_signature_method' => 'HMAC-SHA1',
+			'oauth_token' => $this->config['oauth_access_token'],
+			'oauth_timestamp' => time(),
+			'oauth_version' => '1.0'
+		];
+
+		$base_info = $this->buildBaseString($base_url, 'GET', array_merge($oauth, $url_arguments));
+		
+		$composite_key = rawurlencode($this->config['consumer_secret']) . '&' . rawurlencode($this->config['oauth_access_token_secret']);
+
+		$oauth['oauth_signature'] = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
+		 
+		// Make Requests
+		$header = [
+			$this->buildAuthorizationHeader($oauth), 
+			'Expect:'
+		];
+		$options = [
+			CURLOPT_HTTPHEADER => $header,
+			//CURLOPT_POSTFIELDS => $postfields,
+			CURLOPT_HEADER => false,
+			CURLOPT_URL => $full_url,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_SSL_VERIFYPEER => false
+		];
+		 
+		$feed = curl_init();
+		curl_setopt_array($feed, $options);
+		$result = curl_exec($feed);
+		$info = curl_getinfo($feed);
+		curl_close($feed);
+		 
+		// Send suitable headers to the end user.
+		if (isset($info['content_type']) && isset($info['size_download'])){
+			header('Content-Type: ' . $info['content_type']);
+			header('Content-Length: ' . $info['size_download']);
+		}
+
+		return $result;
+	}
+	</body>
+</html>
